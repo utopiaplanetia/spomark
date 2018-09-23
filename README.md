@@ -1,4 +1,4 @@
-# Spoitfy Bookmarking App
+# Spotify Bookmarking App
 
 This app allows to subscribe to a Spotify playlist of an audio book and track the progress. 
 The app will save the last position within the audio book and allows for resuming the playback.
