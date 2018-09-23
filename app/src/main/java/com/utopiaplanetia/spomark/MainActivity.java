@@ -36,10 +36,7 @@ import java.util.List;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
-    // TODO: Replace with your client ID
-    private static final String CLIENT_ID = "310af167a7e74edd986e2bc6529350b9";
-    // TODO: Replace with your redirect URI
-    private static final String REDIRECT_URI = "https://github.com/utopiaplanetia/spomark";
+
     // Request code that will be used to verify if the result comes from correct activity
 // Can be any integer
     private static final int REQUEST_CODE = 1337;
