@@ -21,21 +21,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
-import com.spotify.sdk.android.authentication.AuthenticationClient;
-import com.spotify.sdk.android.authentication.AuthenticationResponse;
-import com.spotify.sdk.android.player.Config;
-import com.spotify.sdk.android.player.ConnectionStateCallback;
-import com.spotify.sdk.android.player.Error;
-import com.spotify.sdk.android.player.Player;
-import com.spotify.sdk.android.player.PlayerEvent;
-import com.spotify.sdk.android.player.Spotify;
-import com.spotify.sdk.android.player.SpotifyPlayer;
+//import com.spotify.sdk.android.authentication.AuthenticationClient;
+//import com.spotify.sdk.android.authentication.AuthenticationResponse;
+//import com.spotify.sdk.android.player.Config;
+//import com.spotify.sdk.android.player.ConnectionStateCallback;
+//import com.spotify.sdk.android.player.Error;
+//import com.spotify.sdk.android.player.Player;
+//import com.spotify.sdk.android.player.PlayerEvent;
+//import com.spotify.sdk.android.player.Spotify;
+//import com.spotify.sdk.android.player.SpotifyPlayer;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends Activity implements
-        SpotifyPlayer.NotificationCallback, ConnectionStateCallback, View.OnClickListener {
+public class MainActivity extends Activity implements View.OnClickListener {
 
     // TODO: Replace with your client ID
     private static final String CLIENT_ID = "310af167a7e74edd986e2bc6529350b9";
@@ -55,7 +54,7 @@ public class MainActivity extends Activity implements
 
     private List<Track> subscribedPlaylists;
     private List<String> subscribedPlaylistsView;
-    private Player mPlayer;
+    //    private Player mPlayer;
     private SharedPreferences pref;
 
     private Track selectedTrack;
@@ -211,32 +210,32 @@ public class MainActivity extends Activity implements
         Toast.makeText(this, "Service stopped!", Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        super.onActivityResult(requestCode, resultCode, intent);
-
-
-        // Check if result comes from the correct activity
-        if (requestCode == REQUEST_CODE) {
-            AuthenticationResponse response = AuthenticationClient.getResponse(resultCode, intent);
-            if (response.getType() == AuthenticationResponse.Type.TOKEN) {
-                Config playerConfig = new Config(this, response.getAccessToken(), CLIENT_ID);
-                Spotify.getPlayer(playerConfig, this, new SpotifyPlayer.InitializationObserver() {
-                    @Override
-                    public void onInitialized(SpotifyPlayer spotifyPlayer) {
-                        mPlayer = spotifyPlayer;
-                        mPlayer.addConnectionStateCallback(MainActivity.this);
-                        mPlayer.addNotificationCallback(MainActivity.this);
-                    }
-
-                    @Override
-                    public void onError(Throwable throwable) {
-                        Log.e("MainActivity", "Could not initialize player: " + throwable.getMessage());
-                    }
-                });
-            }
-        }
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+//        super.onActivityResult(requestCode, resultCode, intent);
+//
+//
+//        // Check if result comes from the correct activity
+//        if (requestCode == REQUEST_CODE) {
+//            AuthenticationResponse response = AuthenticationClient.getResponse(resultCode, intent);
+//            if (response.getType() == AuthenticationResponse.Type.TOKEN) {
+//                Config playerConfig = new Config(this, response.getAccessToken(), CLIENT_ID);
+//                Spotify.getPlayer(playerConfig, this, new SpotifyPlayer.InitializationObserver() {
+//                    @Override
+//                    public void onInitialized(SpotifyPlayer spotifyPlayer) {
+//                        mPlayer = spotifyPlayer;
+//                        mPlayer.addConnectionStateCallback(MainActivity.this);
+//                        mPlayer.addNotificationCallback(MainActivity.this);
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable throwable) {
+//                        Log.e("MainActivity", "Could not initialize player: " + throwable.getMessage());
+//                    }
+//                });
+//            }
+//        }
+//    }
 
     private void deserializeSettings() {
         pref = getSharedPreferences(MAIN_STORE_KEY, Context.MODE_PRIVATE);
@@ -284,56 +283,56 @@ public class MainActivity extends Activity implements
     @Override
     protected void onDestroy() {
         Log.d("MainActivity", "onDestroy");
-        Spotify.destroyPlayer(this);
+//        Spotify.destroyPlayer(this);
         super.onDestroy();
     }
 
-    @Override
-    public void onPlaybackEvent(PlayerEvent playerEvent) {
-        Log.d("MainActivity", "Playback event received: " + playerEvent.name());
-        switch (playerEvent) {
-            // Handle event type as necessary
-            default:
-                break;
-        }
-    }
+//    @Override
+//    public void onPlaybackEvent(PlayerEvent playerEvent) {
+//        Log.d("MainActivity", "Playback event received: " + playerEvent.name());
+//        switch (playerEvent) {
+//            // Handle event type as necessary
+//            default:
+//                break;
+//        }
+//    }
 
-    @Override
-    public void onPlaybackError(Error error) {
-        Log.d("MainActivity", "Playback error received: " + error.name());
-        switch (error) {
-            // Handle error type as necessary
-            default:
-                break;
-        }
-    }
-
-    @Override
-    public void onLoggedIn() {
-        Log.d("MainActivity", "User logged in");
-
-        //mPlayer.playUri(null, "spotify:track:2TpxZ7JUBn3uw46aR7qd6V", 0, 0);
-    }
-
-    @Override
-    public void onLoggedOut() {
-        Log.d("MainActivity", "User logged out");
-    }
-
-    @Override
-    public void onLoginFailed(Error error) {
-        Log.d("MainActivity", "Login failed");
-    }
-
-    @Override
-    public void onTemporaryError() {
-        Log.d("MainActivity", "Temporary error occurred");
-    }
-
-    @Override
-    public void onConnectionMessage(String message) {
-        Log.d("MainActivity", "Received connection message: " + message);
-    }
+//    @Override
+//    public void onPlaybackError(Error error) {
+//        Log.d("MainActivity", "Playback error received: " + error.name());
+//        switch (error) {
+//            // Handle error type as necessary
+//            default:
+//                break;
+//        }
+//    }
+//
+//    @Override
+//    public void onLoggedIn() {
+//        Log.d("MainActivity", "User logged in");
+//
+//        //mPlayer.playUri(null, "spotify:track:2TpxZ7JUBn3uw46aR7qd6V", 0, 0);
+//    }
+//
+//    @Override
+//    public void onLoggedOut() {
+//        Log.d("MainActivity", "User logged out");
+//    }
+//
+//    @Override
+//    public void onLoginFailed(Error error) {
+//        Log.d("MainActivity", "Login failed");
+//    }
+//
+//    @Override
+//    public void onTemporaryError() {
+//        Log.d("MainActivity", "Temporary error occurred");
+//    }
+//
+//    @Override
+//    public void onConnectionMessage(String message) {
+//        Log.d("MainActivity", "Received connection message: " + message);
+//    }
 
     @Override
     public void onClick(View view) {
