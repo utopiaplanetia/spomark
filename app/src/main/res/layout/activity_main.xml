@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.utopiaplanetia.spomark.MainActivity">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="3"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="10dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textDetectedTrack"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_column="1"
+                android:layout_span="2"
+                android:layout_weight="1"
+                android:text="Spotify Playlist Bookmarker"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:textStyle="bold" />
+
+
+            <!--
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button2"
+            android:text="Start Services"
+            android:onClick="startService"
+            android:layout_column="1"
+            android:layout_below="@+id/imageButton"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stop Services"
+            android:layout_column="2"
+            android:id="@+id/button"
+            android:onClick="stopService"
+             />
+-->
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+
+            <TextView
+                android:id="@+id/textDetectedTrack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_span="2"
+                android:layout_weight="1"
+                android:text="Current Track on Spotify:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:textColor="@android:color/holo_blue_dark" />
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textMetaData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                android:layout_span="2"
+                android:layout_weight="1"
+                android:text=""
+                android:textSize="17sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="68dp">
+
+            <Button
+                android:id="@+id/subscribebutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_span="2"
+                android:layout_weight="1"
+                android:onClick="subscribeToPlaylist"
+                android:text="Track playlist" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="68dp">
+
+            <TextView
+                android:id="@+id/textsubscribedplaylists"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_marginTop="10dp"
+                android:layout_span="2"
+                android:layout_weight="1"
+                android:text="Tracked Playlists:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:textColor="?android:attr/colorMultiSelectHighlight" />
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Spinner
+                android:id="@+id/subscribelist"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                android:layout_span="2"
+                android:layout_weight="1"
+                android:minHeight="?android:attr/listPreferredItemHeight"
+                android:singleLine="false" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/unsubscribebutton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_span="1"
+                android:layout_weight="0.5"
+                android:onClick="unsubscribeToPlaylist"
+                android:text="Untrack playlist" />
+            <!--<Button
+                android:id="@+id/pausebutton"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="Pause" />-->
+
+            <Button
+                android:id="@+id/playbutton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_span="1"
+                android:layout_weight="0.5"
+                android:text="Play Playlist"
+                tools:layout_editor_absoluteX="64dp"
+                tools:layout_editor_absoluteY="57dp" />
+        </TableRow>
+
+    </TableLayout>
+
+</android.support.constraint.ConstraintLayout>
