@@ -166,6 +166,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             subscribedPlaylists.forEach((Track t) -> subscribedPlaylistsView.add(t.getArtist() + "," + t.getAlbum() + "," + t.getSongtitle()));
             playlistsAdapter.clear();
             playlistsAdapter.addAll(subscribedPlaylistsView);
+            Toast.makeText(this, "Track added successfully to subscription list.", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "No track selected or already subscribed!", Toast.LENGTH_SHORT).show();
         }
@@ -181,6 +182,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             playlistsAdapter.clear();
             playlistsAdapter.addAll(subscribedPlaylistsView);
             selectedTrack = null;
+            Toast.makeText(this, "Unsubscribed from playlist successfully!", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "No track selected!", Toast.LENGTH_SHORT).show();
         }

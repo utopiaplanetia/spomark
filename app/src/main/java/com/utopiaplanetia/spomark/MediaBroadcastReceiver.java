@@ -64,7 +64,7 @@ public class MediaBroadcastReceiver extends BroadcastReceiver {
         }
     }
 
-    static final class BroadcastTypes {
+    public static final class BroadcastTypes {
         static final String SPOTIFY_PACKAGE = "com.spotify.music";
         static final String PLAYBACK_STATE_CHANGED = SPOTIFY_PACKAGE + ".playbackstatechanged";
         static final String QUEUE_CHANGED = SPOTIFY_PACKAGE + ".queuechanged";

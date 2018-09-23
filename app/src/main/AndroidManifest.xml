@@ -21,11 +21,11 @@
         </activity>
 
 
-        <!-- Needed for LoginActivity to work -->
+        <!-- Needed for LoginActivity to work
         <activity
             android:name="com.spotify.sdk.android.authentication.LoginActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
+-->
 
         <service
             android:name=".MetaDataReceiverService"
@@ -39,18 +39,6 @@
 
 
         <!-- Mediabroadcast receiver for receiving information about ongoing playbacks -->
-        <receiver
-            android:name="MediaBroadcastReceiver"
-            android:enabled="true"
-            android:exported="true">
-
-            <intent-filter>
-                <action android:name="com.spotify.music.playbackstatechanged" />
-                <action android:name="com.spotify.music.metadatachanged" />
-                <action android:name="com.spotify.music.queuechanged" />
-            </intent-filter>
-
-        </receiver>
     </application>
 
 
